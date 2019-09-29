@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>To do list</title>
+  </head>
+  <body>
+    <div class="grid-text">
+      <h1>CREATE A TASK</h1>
+      <h1>TO DO</h1>
+      <h1>DOING</h1>
+      <h1>DRAWINGS</h1>
+    </div>
+    <main>
+      <form id="addform">
+        <input type="text" name="task" id="task" placeholder="task" required />
+        <label for="task" class="text-label">
+          Task
+        </label>
+
+        <input list="categories" id="category" name="category" placeholder="category" required />
+        <label for="category" class="text-label">Category</label>
+        <datalist id="categories">
+          <option value="Home"> </option>
+          <option value="School"> </option>
+          <option value="Work"> </option>
+          <option value="Friends"> </option>
+          <option value="Hobby"> </option>
+          <option value="Travel"> </option>
+          <option value="Other"> </option>
+        </datalist>
+
+        <input type="text" name="taskmanager" id="taskmanager" placeholder="taskmanager" required />
+        <label for="taskmanager" class="text-label">
+          Task Manager
+        </label>
+
+        <button type="submit" name="submit" class="add">Add task</button>
+      </form>
+
+      <div class="app"></div>
+
+      <template>
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <article>
+                <h1 class="category"></h1>
+                <h1 class="task"></h1>
+                <h1 class="taskmanager"></h1>
+                <!-- <button class="edit">edit me</button>
+                <button class="delete">delete me</button> -->
+                <button class="doing">doing</button>
+                <div class="dropdown">
+                  <button class="dropbtn">&#9776;</button>
+                  <div class="dropdown-content">
+                    <a class="edit">edit me</a>
+                    <a class="delete">delete me</a>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="flip-card-back">
+              <form id="editform">
+                <input type="text" name="task" id="task" placeholder="task" required />
+                <label for="task" class="text-label-edit">
+                  Task
+                </label>
+
+                <input list="categories" id="category" name="category" placeholder="category" required />
+                <label for="category" class="text-label-edit">Category</label>
+                <datalist id="categories">
+                  <option value="Home"> </option>
+                  <option value="School"> </option>
+                  <option value="Work"> </option>
+                  <option value="Friends"> </option>
+                  <option value="Hobby"> </option>
+                  <option value="Travel"> </option>
+                  <option value="Other"> </option>
+                </datalist>
+
+                <input type="text" name="taskmanager" id="taskmanager" placeholder="taskmanager" required />
+                <label for="taskmanager" class="text-label-edit">
+                  Task Manager
+                </label>
+
+                <input type="hidden" name="id" />
+                <button name="cancel" class="cancel">
+                  Cancel
+                </button>
+                <button type="submit" name="submit" class="edit">
+                  Save changes
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </template>
+      <div class="doing-space">to be done</div>
+
+      <div>
+      <canvas id="theCanvas"></canvas>
+    </canvas>
+        <button id="clearButton">Clear</button>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

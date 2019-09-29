@@ -1,0 +1,346 @@
+/*************** GENERAL ***************/
+@import url("https://fonts.googleapis.com/css?family=Muli:400,700&display=swap");
+* {
+  /* place-items: center; */
+  box-sizing: border-box;
+  font-family: "Muli", sans-serif;
+}
+
+:root {
+  --color-blue: #005ea1;
+  --color-orange: #fa4f00;
+  --color-yellow: #ffe477;
+
+  --color-gray: #6a6a6a;
+  --background-color2: #f7f7f7;
+
+  --border-color: #707070;
+  --label-color: #fbfbfb;
+
+  --background-color: #d3d3d3;
+  --color-slightly-black: #383838;
+  --color-slightly-blue: #35a4c9;
+}
+
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+
+body {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: "Nunito Sans", sans-serif;
+  background-color: var(--background-color);
+  max-width: 100%;
+}
+/*************** label looks ***************/
+
+h1 {
+  opacity: 0.5;
+}
+.category {
+  text-align: right;
+  text-transform: uppercase;
+  margin: 1em 1em 3em 0;
+}
+.task {
+  text-align: left;
+  margin: 1em;
+  opacity: 1;
+}
+.taskmanager {
+  text-align: left;
+  margin: 1em;
+}
+
+@media all and (max-width: 750px) {
+}
+
+@media all and (max-width: 1200px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+
+@media all and (max-width: 900px) {
+  html {
+    font-size: 50%;
+  }
+}
+
+/*************** FORM ***************/
+
+#addform {
+  /* border: 1px var(--border-color) solid; */
+  padding: 30px;
+  /* width: 30%; */
+  /* margin-bottom: 2em; */
+  background-color: var(--label-color);
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#addform input {
+  width: 100%;
+  padding: 12px 8px;
+  margin: 8px 0;
+  display: block;
+  border: 1px solid rgb(172, 171, 171);
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+/* floating label */
+/* ---------------------LABELS */
+
+label {
+  font-size: 1rem;
+  font-weight: 200;
+}
+
+.text-label {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  font-size: 1rem;
+  transition: all 0.4s ease-in;
+  transform: translateY(-70px);
+}
+
+.text-label-edit {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+  font-size: 1rem;
+  transition: all 0.4s ease-in;
+  transform: translateY(-50px);
+}
+
+input:placeholder-shown + .text-label,
+input:placeholder-shown + .text-label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-1rem);
+}
+
+/* end */
+
+#addform input:not(:focus):invalid {
+  border: 2px #ccc solid;
+}
+
+#addform input:valid:not(:placeholder-shown):not(:focus) {
+  border: 2px green solid;
+}
+
+form button,
+#clearButton {
+  padding: 9px;
+  /* width: 100%; */
+  margin-top: 15px;
+  text-transform: uppercase;
+  background-color: var(--color-slightly-blue);
+  border: none;
+  color: var(--label-color);
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  /* font-size: 16px; */
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 2px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
+.flip-card {
+  margin-bottom: 5px;
+  /* background-color: transparent; */
+  width: auto;
+  height: 250px;
+  /* border: 1px solid #f1f1f1; */
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.clicked .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 5px;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: var(--label-color);
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: var(--label-color);
+  transform: rotateY(180deg);
+  text-align: left;
+}
+
+/* Edit form */
+#editform {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  padding-top: 40px;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+#editform input {
+  padding: 4px 2px;
+  margin: 4px 0;
+  margin-bottom: 10px;
+  width: 80%;
+  display: block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: white;
+}
+
+#editform label {
+  font-size: 0.7em;
+}
+
+#editform .edit {
+  margin-top: 15px;
+  background-color: lightgray;
+  width: 30%;
+  position: absolute;
+  right: 10%;
+  bottom: 5px;
+}
+
+#editform .cancel {
+  margin-top: 15px;
+  background-color: lightgray;
+  width: 30%;
+  position: absolute;
+  left: 10%;
+  bottom: 5px;
+}
+
+/* doing */
+button.doing {
+  text-align: left;
+  margin: 1em;
+  opacity: 0.5;
+  border: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  float: right;
+  cursor: pointer;
+}
+
+/* .doing {
+  background-color: lightgreen;
+} */
+
+main {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+  width: 100%;
+  display: grid;
+  /* Define Auto Row size */
+  /* grid-auto-rows: 100px; */
+  /*Define our columns */
+  /* grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); */
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em;
+}
+
+.grid-text {
+  display: grid;
+  width: 100%;
+  padding: 0 20px;
+  margin: 30px auto;
+  max-width: 1200px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1em;
+}
+
+/*************** DROPDOWN ***************/
+
+.dropbtn {
+  background-color: transparent;
+  color: var(--background-color);
+  /* padding: 16px; */
+  font-size: 25px;
+  /* border: 2px solid var(--background-color); */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--label-color);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* .dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+} */
+
+/*************** CANVAS***************/
+
+#theCanvas {
+  height: 400px;
+  width: 100%;
+  background: var(--label-color);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
